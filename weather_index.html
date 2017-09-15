@@ -1,0 +1,272 @@
+<!-- api key = y8hul3d5vTj3CnU0cZxBPB4F2NRzg5NG -->
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<title>Weather API</title>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+	<script src="http://code.jquery.com/jquery-1.9.1.js"></script>
+	<link rel="stylesheet" type="text/css" href="weather.css"/>
+	<!-- <script src="functions.js"></script> -->
+
+<script type="text/javascript">
+
+$(document).ready(function(){
+	$('#searchWeather').click(function(){
+	
+		var city = $("#city").val();
+		
+		if(city != ''){
+			$.ajax({
+				
+				url: 'http://api.openweathermap.org/data/2.5/weather?q=' + city + "&units=imperial" + 
+				"&APPID=0776a7347c28d9ffd9b01109429eaff1",
+				type: "GET",
+				dataType: "jsonp",
+				success: function(data){
+					var widget = show(data);
+					
+					$("#show").html(widget);
+					$("#city").val('');
+				}
+			});
+			
+		}else{
+			$("error").html('Field cannot be empty!');
+		}
+	});
+});
+
+
+function show(data){
+	return "<h2>Current Weather for " + data.name + ", " + data.sys.country + "</h2>" +
+			"<h3><strong>Weather</strong>: "+ data.weather[0].main +"</h3>" +
+			"<h3><strong>Description</strong>: "+ data.weather[0].description +"</h3>" +
+			"<h3><strong>Current Temperature</strong>: "+ data.main.temp +"</h3>" + 
+			"<h3><strong>Pressure</strong>: "+ data.main.pressure +"</h3>" +
+			"<h3><strong>Humidity</strong>: "+ data.main.humidity +"</h3>" +
+			"<h3><strong>Min Temperature</strong>: "+ data.main.temp_min +"</h3>" +
+			"<h3><strong>Max Temperature</strong>: "+ data.main.temp_max +"</h3>";
+
+
+}
+// $(function () {
+// 	var isMetric = false;
+// 	var locationUrl = "";
+// 	var weatherString = "";
+// 	var language = "en"; 
+// 	var apiKey = "y8hul3d5vTj3CnU0cZxBPB4F2NRzg5NG";
+// 	
+// 	//look up city user searches for 	
+// 	var CityLookUp = function (freetext) {
+// 		//locationURL = "http://apidev.accuweather.com/locations/v1/search?q=" + freeText + "&apikey=" + apiKey;
+// 		// ajax call 
+// 	
+// 	}
+// 
+// 	
+// 	//location Current condition (location key) 
+// 	
+// 	
+// 
+// 
+// 	//pressing enter
+// 	$("#SearchTextBox").keypress(function (z) {
+// 		if ((z.which && z.which == 13) || (z.keyCode && z.keyCode == 13)) {
+// 			var text = $("#SearchTextBox").val();
+// 			CityLookUp(text);
+// 			return false;
+// 		} else {
+// 			return true;
+// 		}
+// 	});
+// 	
+// 	//search botton 
+// 	$("#SearchButton").click(function () {
+// 		var text = $("#SearchTextBox").val();
+// 			CityLookUp(text);
+// 	});
+// });
+// 		
+		
+		
+		
+		
+</script>
+
+</head>
+<body>
+<script scr="weather.js"></script> 
+<!-- <div id="flexContainer"> -->
+
+<div id="header">
+	<h1> Weather APP </h1>
+</div>
+<div class="container">
+	<div id="title">
+		<h2> Search your location </h2>
+		<span id"error"></span>
+	</div>
+
+
+	<div>
+		Enter location name:
+			<input id="city" placeholder="lamoni, IA" />
+			<input id="searchWeather" type="submit" value="Search" />
+	</div>
+ 	<div id="show">
+	<div id="title">   
+		<h2>  Current condition </h2>
+	</div>
+
+
+	<div id="title">
+		<h3> Hourly Condition </h3>
+	</div>
+
+		<table>
+			<thead>
+				<tr>
+					<th>CT</th>
+					<th>CT+1HR</th>
+					<th>CT+2HR</th>
+					<th>CT+3HR</th>
+					<th>CT+4HR</th>
+					<th>CT+5HR</th>
+					<th>CT+6HR</th>
+					<th>CT+7HR</th>
+					<th>CT+8HR</th>	
+					<th>CT+9HR</th>	
+					<th>CT+10HR</th>	
+					<th>CT+11HR</th>	
+			
+				</tr>
+		</thead>
+	
+			<td>
+				<img border="0" src="placeholder.png" alt="smiley" width="25" height="25">
+			___ <span>&#8457;</span>
+			</td>
+			<td>
+				<img border="0" src="placeholder.png" alt="smiley" width="25" height="25">
+			___ <span>&#8457;</span>
+			</td>
+			<td>
+				<img border="0" src="placeholder.png" alt="smiley" width="25" height="25">
+			___ <span>&#8457;</span>
+			<td>
+				<img border="0" src="placeholder.png" alt="smiley" width="25" height="25">
+			___ <span>&#8457;</span>
+			</td>
+			<td>
+				<img border="0" src="placeholder.png" alt="smiley" width="25" height="25">
+			___ <span>&#8457;</span>
+			</td>
+			<td>
+				<img border="0" src="placeholder.png" alt="smiley" width="25" height="25">
+			___ <span>&#8457;</span>
+			</td>
+			<td>
+				<img border="0" src="placeholder.png" alt="smiley" width="25" height="25">
+			___ <span>&#8457;</span>
+			</td>
+			<td>
+				<img border="0" src="placeholder.png" alt="smiley" width="25" height="25">
+			___ <span>&#8457;</span>
+			</td>
+			<td>
+				<img border="0" src="placeholder.png" alt="smiley" width="25" height="25">
+			___ <span>&#8457;</span>
+			</td>
+			<td>
+				<img border="0" src="placeholder.png" alt="smiley" width="25" height="25">
+			___ <span>&#8457;</span>
+			</td>
+			<td>
+			<img border="0" src="placeholder.png" alt="smiley" width="25" height="25">
+			___ <span>&#8457;</span>
+			</td>
+			<td>
+			<img border="0" src="placeholder.png" alt="smiley" width="25" height="25">
+			___ <span>&#8457;</span>
+			</td>			
+			<td>
+				<img border="0" src="placeholder.png" alt="smiley" width="25" height="25">
+			___ <span>&#8457;</span>
+			</td>	
+	
+		</table>
+
+	<div id="title">
+		<h2>5 Day forcast for your location </h2>
+	</div>
+	<div id="5day">
+		<table style="width:75%">
+			<thead>
+			<tr>
+				<th colspan="2">Today</th>
+				<th>Tomorrow</th>
+				<th>Day 3</th>
+				<th>Day 4</th>
+				<th>Day 5</th>
+			</tr>
+		</thead>
+	
+		<tr>
+			<td>
+				___ <span>&#8457;</span>
+				
+			</td>
+		
+			<td>
+				<img border="0" src="placeholder.png" alt="smiley" width="50" height="50">
+			</td>
+		
+			<td>
+				___ <span>&#8457;</span>
+				<img border="0" src="placeholder.png" alt="smiley" width="25" height="25">
+			</td>
+	
+			<td>
+				___ <span>&#8457;</span>
+				<img border="0" src="placeholder.png" alt="smiley" width="25" height="25">
+			</td>
+			<td>
+				___ <span>&#8457;</span>
+				<img border="0" src="placeholder.png" alt="smiley" width="25" height="25">
+			</td>	
+			<td>
+				___ <span>&#8457;</span>
+				<img border="0" src="placeholder.png" alt="smiley" width="25" height="25">
+			</td>
+		</tr>
+	
+
+				
+	
+		
+
+	
+		</table> 
+
+	</div>
+</div><!-- End Container --> 
+
+<!-- </div> -->
+
+<div id="footer">
+	<p>&copy; 2017 Allysha Bilges</p>
+	<a href="http://validator.w3.org/check?uri=referer" target="_blank">
+    <img style="border:0;width:88px;height:31px"
+	src="http://alt.graceland.edu/~belmore/html5-logo.png"
+    alt="Valid HTML 5.0 "/></a>
+	<a href="http://jigsaw.w3.org/css-validator/check/referer" target="_blank">
+	<img style="border:0;width:88px;height:31px"
+    src="http://jigsaw.w3.org/css-validator/images/vcss"
+    alt="Valid CSS!"/></a>
+</div><!--End Footer-->
+
+</body>
+
+
+</html>

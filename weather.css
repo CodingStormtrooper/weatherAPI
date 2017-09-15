@@ -1,0 +1,80 @@
+
+body{
+	position: absolute;
+    top: 0px;
+    left: 50%;
+    margin-left: -500px; 
+	background-color: lightgrey;
+}
+
+.container{
+	background-color: lightblue;
+	align: center;
+
+
+}
+table{
+
+	background-color: lightblue;
+
+
+}
+
+th, td{
+	padding: 5px;
+    text-align: center;
+
+}
+
+thead{
+	background-color: blue;
+	border: 1px solid black;
+	font-size: 20;
+	font-weight: bold; 
+	color: white; 	
+}
+
+#5day{ 
+
+	
+
+
+}
+
+#flexContainer{
+	display: -webkit-flex;
+	display: flex;
+	justify-content: center;
+}
+
+
+
+h1{
+
+	text-align: center;
+	background-color: blue;
+	color: white;
+}
+
+
+h2{
+	text-align: center;
+}
+
+
+h3{
+	text-algn: center;
+}
+
+#footer p{
+	text-align:center;
+	padding-bottom:10px;
+}
+#footer{
+	margin: 10px;
+	text-align:center;
+}
+#footer img{
+	border-color: #FFFFFF;
+	border-radius: 20px;
+}
