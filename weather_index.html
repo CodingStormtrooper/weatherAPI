@@ -88,7 +88,8 @@ function show(data){
 // 	});
 // });
 // 		
-		
+
+
 
 </script>
 
@@ -122,25 +123,25 @@ function show(data){
 		<h3> Hourly Condition </h3>
 	</div>
 
+
 		<table>
 			<thead>
 				<tr>
-					<th>CT</th>
-					<th>CT+1HR</th>
-					<th>CT+2HR</th>
-					<th>CT+3HR</th>
-					<th>CT+4HR</th>
-					<th>CT+5HR</th>
-					<th>CT+6HR</th>
-					<th>CT+7HR</th>
-					<th>CT+8HR</th>	
-					<th>CT+9HR</th>	
-					<th>CT+10HR</th>	
-					<th>CT+11HR</th>	
-			
+					<th id="hour0">Name</th>
+					<th id="hour1"></th>
+					<th id="hour2"></th>
+					<th id="hour3"></th>
+					<th id="hour4"></th>
+					<th id="hour5"></th>
+					<th id="hour6"></th>
+					<th id="hour7"></th>
+					<th id="hour8"></th>
+					<th id="hour9"></th>
+					<th id="hour10"></th>
+					
 				</tr>
-		</thead>
-	
+			</thead>
+			<tr>	
 			<td>
 				<img border="0" src="placeholder.png" alt="smiley" width="25" height="25">
 			___ <span>&#8457;</span>
@@ -184,14 +185,7 @@ function show(data){
 			<img border="0" src="placeholder.png" alt="smiley" width="25" height="25">
 			___ <span>&#8457;</span>
 			</td>
-			<td>
-			<img border="0" src="placeholder.png" alt="smiley" width="25" height="25">
-			___ <span>&#8457;</span>
-			</td>			
-			<td>
-				<img border="0" src="placeholder.png" alt="smiley" width="25" height="25">
-			___ <span>&#8457;</span>
-			</td>	
+		</tr>
 	
 		</table>
 
@@ -202,11 +196,12 @@ function show(data){
 		<table style="width:75%">
 			<thead>
 			<tr>
-				<th colspan="2">Today</th>
-				<th>Tomorrow</th>
-				<th>Day 3</th>
-				<th>Day 4</th>
-				<th>Day 5</th>
+				<th id="Day0">Today</th>
+				<th id="Day1"></th>
+				<th id="Day2"></th>
+				<th id="Day3"></th>
+				<th id="Day4"></th>
+
 			</tr>
 		</thead>
 	
@@ -239,18 +234,13 @@ function show(data){
 			</td>
 		</tr>
 	
-
-				
-	
-		
-
-	
 		</table> 
 
 	</div>
 </div><!-- End Container --> 
 
 <!-- </div> -->
+
 
 <div id="footer">
 	&copy; Copyright 2017-<script>document.write(new Date().getFullYear())</script>, Allysha Bilges.	
@@ -265,6 +255,55 @@ function show(data){
     alt="Valid CSS!"/></a>
 </div><!--End Footer-->
 
+<script>
+
+function getHour(){
+
+const d = new Date();
+var hour = d.getHours();
+
+	for (let i = 0; i < 12; i++) {
+		console.log(i + "Starting" + "  HOUR " + hour)
+		if (hour <= 24) { 
+			document.getElementById("hour" + i).innerHTML = hour;
+			hour = hour + 1;
+		}
+		else { 
+			for (let j = 1; hour > 12 && i < 11; j++) {
+				let over24Hour = j; 
+				document.getElementById("hour" + i).innerHTML = over24Hour;
+				over24Hour = j;
+				console.log(hour + "TESTING ")
+				i++;
+				console.log(i + "END of else");
+			}
+
+		}
+	}
+}
+getHour();
+
+
+function getDay(){
+
+const g = new Date();
+var day = g.getDay();
+
+/* Date.prototype.getWeekDay = function() {
+	var weekday = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+    return weekday[this.getDay()];
+}
+*/
+
+	for (let i = 0; i < 5; i++) {
+			document.getElementById("Day" + i).innerHTML = day;
+			day = day + 1;
+		}
+		
+}
+getDay();
+
+</script>
 </body>
 
 

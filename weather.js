@@ -31,6 +31,11 @@ $(document).ready(function(){
 	});
 });
 
+const d = new Date();
+let hour = d.getHours();
+document.getElementById("hour") = hour;
+
+
 
 function showCurrent(data){
 	//current temp 
