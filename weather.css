@@ -4,6 +4,10 @@
 	min-height: 100vh;
 	/* Ensures the container takes at least the full height of the viewport */
 }
+#title { 
+	background-color: blue;
+	color: white;
+}
 
 #search-container {
 	display: flex;
@@ -11,7 +15,7 @@
 	/* Vertically center items within the container */
 	justify-content: center;
 	/* Horizontally center items within the container */
-	background-color: blue;
+	background-color: #f1f1f1;
 	padding: 20px;
 }
 
@@ -24,6 +28,13 @@
 
 #search-button {
 	/* Your button styles */
-
+	
 	/* ... (button styles) ... */
+}
+
+#weather-card {
+	background-color: #f1f1f1;
+	padding: 20px;
+	border-radius: 10px;
+	box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
