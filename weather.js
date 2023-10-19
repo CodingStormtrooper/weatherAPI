@@ -31,6 +31,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const cityElement = document.getElementById('city');
     const temperatureElement = document.getElementById('temperature');
     const weatherInfoDiv = document.getElementById('weather-info');
+    const weatherConditionElement = document.getElementById('weather-condition'); // Assuming you have an element with this ID in your HTML
 
     searchButton.addEventListener('click', function(event) {
         event.preventDefault(); // Prevent the form from submitting
@@ -49,7 +50,15 @@ document.addEventListener('DOMContentLoaded', function() {
                 // Update UI elements with weather data in Fahrenheit
                 cityElement.textContent = `City: ${data.name}`;
                 temperatureElement.textContent = `Temperature: ${temperatureInFahrenheit.toFixed(2)}°F`;
-
+                
+                                // Set weather condition image
+                const weatherIcon = data.weather[0].icon;
+                const weatherIconUrl = `http://openweathermap.org/img/wn/${weatherIcon}.png`;
+                const weatherImg = document.createElement('img');
+                weatherImg.src = weatherIconUrl;
+                weatherConditionElement.innerHTML = ''; // Clear previous content
+                weatherConditionElement.appendChild(weatherImg);
+                
                 // Show weather info div
                 weatherInfoDiv.style.display = 'block';
             })
