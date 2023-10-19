@@ -15,15 +15,6 @@ function getWeatherData(city) {
         });
 }
 
-const city = 'New York'; // Replace this with the city you want to get weather data for
-getWeatherData(city)
-    .then(data => {
-        // Handle the API response data here
-        // You can update your UI or perform other actions with the data
-		
-	
-	
-	});
 	
 document.addEventListener('DOMContentLoaded', function() {
     const searchButton = document.getElementById('search-button');
@@ -58,7 +49,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 weatherImg.src = weatherIconUrl;
                 weatherConditionElement.innerHTML = ''; // Clear previous content
                 weatherConditionElement.appendChild(weatherImg);
-                
+
                 // Show weather info div
                 weatherInfoDiv.style.display = 'block';
             })
