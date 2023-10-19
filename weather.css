@@ -2,16 +2,18 @@
 body{
 	position: absolute;
     top: 0px;
-    left: 50%;
-    margin-left: -500px; 
 	background-color: lightgrey;
 }
 
 .container{
 	background-color: lightblue;
-	align: center;
+}
 
-
+#flexContainer {
+	display: flex;
+	align-items: center;
+	flex-direction: column;
+	align-content: center;
 }
 table{
 
@@ -34,18 +36,8 @@ thead{
 	color: white; 	
 }
 
-#5day{ 
-
-	
 
 
-}
-
-#flexContainer{
-	display: -webkit-flex;
-	display: flex;
-	justify-content: center;
-}
 
 
 
@@ -63,7 +55,7 @@ h2{
 
 
 h3{
-	text-algn: center;
+	text-align: center;
 }
 
 #footer p{

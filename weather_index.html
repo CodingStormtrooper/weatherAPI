@@ -1,321 +1,61 @@
-<!-- api key = y8hul3d5vTj3CnU0cZxBPB4F2NRzg5NG -->
-<!DOCTYPE HTML>
+<!DOCTYPE html>
 <html lang="en">
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-<title>Weather API</title>
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-	<script src="http://code.jquery.com/jquery-1.9.1.js"></script>
-	<link rel="stylesheet" type="text/css" href="weather.css"/>
-	<!-- <script src="functions.js"></script> -->
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Weather API</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="http://code.jquery.com/jquery-1.9.1.js"></script>
+    <link rel="stylesheet" type="text/css" href="weather.css" />
+  </head>
+  <body>
+    <div id="flexContainer">
+      <div id="header">
+        <h1>Weather APP</h1>
+      </div>
+      <div class="container">
+        <div id="title">
+          <h2>Search your location</h2>
+          <span id="error"></span>
+        </div>
 
-<script type="text/javascript">
+        <div>
+          Enter location name:
+          <input id="city-input" placeholder="Enter City" />
+          <input id="search-button" type="submit" />
+        </div>
+      </div>
+      <!-- End Container -->
+      <div id="weather-info"></div>
+      <p id="city"></p>
+      <p id="temperature"></p>
 
-$(document).ready(function(){
-	$('#searchWeather').click(function(){
-	
-		var city = $("#city").val();
-		
-		if(city != ''){
-			$.ajax({
-				
-				url: 'http://api.openweathermap.org/data/2.5/weather?q=' + city + "&units=imperial" + 
-				"&APPID=c46197112d07804a8ecde3b402390a47",
-				type: "GET",
-				dataType: "jsonp",
-				success: function(data){
-					var widget = show(data);
-					
-					$("#show").html(widget);
-					$("#city").val('');
-				}
-			});
-			
-		}else{
-			$("error").html('Field cannot be empty!');
-		}
-	});
-});
+      <div id="footer">
+        &copy; Copyright 2017-
+        <script>
+          document.write(new Date().getFullYear());
+        </script>
+        , Allysha Bilges.
+        <br />
+        <a href="http://validator.w3.org/check?uri=referer" target="_blank">
+          <img
+            style="border: 0; width: 88px; height: 31px"
+            src="http://alt.graceland.edu/~belmore/html5-logo.png"
+            alt="Valid HTML 5.0 "
+        /></a>
+        <a
+          href="http://jigsaw.w3.org/css-validator/check/referer"
+          target="_blank"
+        >
+          <img
+            style="border: 0; width: 88px; height: 31px"
+            src="http://jigsaw.w3.org/css-validator/images/vcss"
+            alt="Valid CSS!"
+        /></a>
+      </div>
+      <!--End Footer-->
+    </div>
+    <!--End FlexBox-->
 
-
-
-function show(data){
-
-
-	return "<h2>Current Weather for " + data.name + ", " + data.sys.country + "</h2>" +
-			"<h3><strong>Weather</strong>: "+ data.weather[0].main +"</h3>" +
-			"<h3><strong>Description</strong>: "+ data.weather[0].description +"</h3>" +
-			"<h3><strong>Current Temperature</strong>: "+ data.main.temp +"</h3>" + 
-			"<h3><strong>Pressure</strong>: "+ data.main.pressure +"</h3>" +
-			"<h3><strong>Humidity</strong>: "+ data.main.humidity +"</h3>" +
-			"<h3><strong>Min Temperature</strong>: "+ data.main.temp_min +"</h3>" +
-			"<h3><strong>Max Temperature</strong>: "+ data.main.temp_max +"</h3>" +
-			"<h3><strong>Weather Condition </strong>: </h3>" + "<img src='http://openweathermap.org/img/wn/" + data.weather[0].icon + "@2x.png'/>";
-
-
-
-}
-
-
-
-// $(function () {
-
-
-// 	var isMetric = false;
-// 	var locationUrl = "";
-// 	var weatherString = "";
-// 	var language = "en"; 
-// 	var apiKey = "y8hul3d5vTj3CnU0cZxBPB4F2NRzg5NG";
-// 	
-// 	//look up city user searches for 	
-// 	var CityLookUp = function (freetext) {
-// 		//locationURL = "http://apidev.accuweather.com/locations/v1/search?q=" + freeText + "&apikey=" + apiKey;
-// 		// ajax call 
-// 	
-// 	}
-// 
-// 	
-// 	//location Current condition (location key) 
-// 	
-// 	
-// 
-// 
-// 	//pressing enter
-// 	$("#SearchTextBox").keypress(function (z) {
-// 		if ((z.which && z.which == 13) || (z.keyCode && z.keyCode == 13)) {
-// 			var text = $("#SearchTextBox").val();
-// 			CityLookUp(text);
-// 			return false;
-// 		} else {
-// 			return true;
-// 		}
-// 	});
-// 	
-// 	//search botton 
-// 	$("#SearchButton").click(function () {
-// 		var text = $("#SearchTextBox").val();
-// 			CityLookUp(text);
-// 	});
-// });
-// 		
-
-
-
-</script>
-
-</head>
-<body>
-<script scr="weather.js"></script> 
-<!-- <div id="flexContainer"> -->
-
-<div id="header">
-	<h1> Weather APP </h1>
-</div>
-<div class="container">
-	<div id="title">
-		<h2> Search your location </h2>
-		<span id"error"></span>
-	</div>
-
-
-	<div>
-		Enter location name:
-			<input id="city" placeholder="lamoni, IA" />
-			<input id="searchWeather" type="submit" value="Search" />
-	</div>
- 	<div id="show">
-	<div id="title">   
-		<h2>  Current condition </h2>
-	</div>
-
-
-	<div id="title">
-		<h3> Hourly Condition </h3>
-	</div>
-
-
-		<table>
-			<thead>
-				<tr>
-					<th id="hour0">Name</th>
-					<th id="hour1"></th>
-					<th id="hour2"></th>
-					<th id="hour3"></th>
-					<th id="hour4"></th>
-					<th id="hour5"></th>
-					<th id="hour6"></th>
-					<th id="hour7"></th>
-					<th id="hour8"></th>
-					<th id="hour9"></th>
-					<th id="hour10"></th>
-					
-				</tr>
-			</thead>
-			<tr>	
-			<td>
-				<img border="0" src="placeholder.png" alt="smiley" width="25" height="25">
-			___ <span>&#8457;</span>
-			</td>
-			<td>
-				<img border="0" src="placeholder.png" alt="smiley" width="25" height="25">
-			___ <span>&#8457;</span>
-			</td>
-			<td>
-				<img border="0" src="placeholder.png" alt="smiley" width="25" height="25">
-			___ <span>&#8457;</span>
-			<td>
-				<img border="0" src="placeholder.png" alt="smiley" width="25" height="25">
-			___ <span>&#8457;</span>
-			</td>
-			<td>
-				<img border="0" src="placeholder.png" alt="smiley" width="25" height="25">
-			___ <span>&#8457;</span>
-			</td>
-			<td>
-				<img border="0" src="placeholder.png" alt="smiley" width="25" height="25">
-			___ <span>&#8457;</span>
-			</td>
-			<td>
-				<img border="0" src="placeholder.png" alt="smiley" width="25" height="25">
-			___ <span>&#8457;</span>
-			</td>
-			<td>
-				<img border="0" src="placeholder.png" alt="smiley" width="25" height="25">
-			___ <span>&#8457;</span>
-			</td>
-			<td>
-				<img border="0" src="placeholder.png" alt="smiley" width="25" height="25">
-			___ <span>&#8457;</span>
-			</td>
-			<td>
-				<img border="0" src="placeholder.png" alt="smiley" width="25" height="25">
-			___ <span>&#8457;</span>
-			</td>
-			<td>
-			<img border="0" src="placeholder.png" alt="smiley" width="25" height="25">
-			___ <span>&#8457;</span>
-			</td>
-		</tr>
-	
-		</table>
-
-	<div id="title">
-		<h2>5 Day forcast for your location </h2>
-	</div>
-	<div id="5day">
-		<table style="width:75%">
-			<thead>
-			<tr>
-				<th id="Day0">Today</th>
-				<th id="Day1"></th>
-				<th id="Day2"></th>
-				<th id="Day3"></th>
-				<th id="Day4"></th>
-
-			</tr>
-		</thead>
-	
-		<tr>
-			<td>
-				___ <span>&#8457;</span>
-				
-			</td>
-		
-			<td>
-				<img border="0" src="placeholder.png" alt="smiley" width="50" height="50">
-			</td>
-		
-			<td>
-				___ <span>&#8457;</span>
-				<img border="0" src="placeholder.png" alt="smiley" width="25" height="25">
-			</td>
-	
-			<td>
-				___ <span>&#8457;</span>
-				<img border="0" src="placeholder.png" alt="smiley" width="25" height="25">
-			</td>
-			<td>
-				___ <span>&#8457;</span>
-				<img border="0" src="placeholder.png" alt="smiley" width="25" height="25">
-			</td>	
-			<td>
-				___ <span>&#8457;</span>
-				<img border="0" src="placeholder.png" alt="smiley" width="25" height="25">
-			</td>
-		</tr>
-	
-		</table> 
-
-	</div>
-</div><!-- End Container --> 
-
-<!-- </div> -->
-
-
-<div id="footer">
-	&copy; Copyright 2017-<script>document.write(new Date().getFullYear())</script>, Allysha Bilges.	
-	<br>
-	<a href="http://validator.w3.org/check?uri=referer" target="_blank">
-    <img style="border:0;width:88px;height:31px"
-	src="http://alt.graceland.edu/~belmore/html5-logo.png"
-    alt="Valid HTML 5.0 "/></a>
-	<a href="http://jigsaw.w3.org/css-validator/check/referer" target="_blank">
-	<img style="border:0;width:88px;height:31px"
-    src="http://jigsaw.w3.org/css-validator/images/vcss"
-    alt="Valid CSS!"/></a>
-</div><!--End Footer-->
-
-<script>
-
-function getHour(){
-
-const d = new Date();
-var hour = d.getHours();
-
-	for (let i = 0; i < 12; i++) {
-		console.log(i + "Starting" + "  HOUR " + hour)
-		if (hour <= 24) { 
-			document.getElementById("hour" + i).innerHTML = hour;
-			hour = hour + 1;
-		}
-		else { 
-			for (let j = 1; hour > 12 && i < 11; j++) {
-				let over24Hour = j; 
-				document.getElementById("hour" + i).innerHTML = over24Hour;
-				over24Hour = j;
-				console.log(hour + "TESTING ")
-				i++;
-				console.log(i + "END of else");
-			}
-
-		}
-	}
-}
-getHour();
-
-
-function getDay(){
-
-const g = new Date();
-var day = g.getDay();
-
-/* Date.prototype.getWeekDay = function() {
-	var weekday = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
-    return weekday[this.getDay()];
-}
-*/
-
-	for (let i = 0; i < 5; i++) {
-			document.getElementById("Day" + i).innerHTML = day;
-			day = day + 1;
-		}
-		
-}
-getDay();
-
-
-</script>
-</body>
-
-
+    <script src="weather.js"></script>
+  </body>
 </html>
