@@ -1,3 +1,4 @@
+import 'dotenv/config';
 import express from 'express';
 import fetch from 'node-fetch';
 import cors from 'cors';
@@ -10,7 +11,7 @@ app.use(cors());
 
 app.get('/weather', (req, res) => {
     const city = req.query.city;
-    const apiKey = 'c46197112d07804a8ecde3b402390a47'; // Replace this with your actual API key
+    const apiKey = process.env.OPENWEATHER_API_KEY;
     const apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}`;
 
     fetch(apiUrl)
