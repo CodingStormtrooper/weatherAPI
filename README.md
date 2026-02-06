@@ -46,4 +46,4 @@ It proxies requests to the OpenWeatherMap API, keeping the API key server-side. 
 ## Tech Stack
 
 - **Backend:** Node.js, Express, dotenv, node-fetch
-- **Frontend:** HTML, CSS, vanilla JavaScript, jQuery
+- **Frontend:** HTML, CSS, vanilla JavaScript

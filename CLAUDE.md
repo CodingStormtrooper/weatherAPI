@@ -19,9 +19,7 @@ ES Module project (`"type": "module"` in package.json).
 **Backend** (`server.mjs`) — Express server on port 3000 with a single endpoint:
 - `GET /weather?city={city}` — proxies requests to OpenWeatherMap API, keeping the API key server-side via `process.env.OPENWEATHER_API_KEY` (loaded from `.env` with dotenv)
 
-**Frontend** (`weather_index.html`, `weather.js`, `weather.css`) — Vanilla JS with jQuery. Sends requests to `localhost:3000/weather`, converts temperature from Kelvin to Fahrenheit, and displays weather icon.
-
-**Note:** `server.js` also exists but `server.mjs` is the actual entry point used by `npm start`.
+**Frontend** (`weather_index.html`, `weather.js`, `weather.css`) — Vanilla JS. Sends requests to `localhost:3000/weather`, converts temperature from Kelvin to Fahrenheit, and displays weather icon.
 
 ## Environment
 
