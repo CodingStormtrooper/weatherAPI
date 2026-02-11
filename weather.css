@@ -1,13 +1,21 @@
+body {
+	margin: 0;
+	font-family: 'Inter', sans-serif;
+	background-color: #ECFEFF;
+	color: #164E63;
+}
+
 #container {
 	display: flex;
 	flex-direction: column;
 	min-height: 100vh;
-	/* Ensures the container takes at least the full height of the viewport */
 }
-#title { 
-	background-color: blue;
-	color: white;
 
+#title {
+	background-color: #0891B2;
+	color: white;
+	text-align: center;
+	padding: 16px 20px;
 }
 
 #search-container {
