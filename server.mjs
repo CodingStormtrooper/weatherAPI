@@ -9,6 +9,9 @@ const port = 3000;
 // Enable All CORS Requests
 app.use(cors());
 
+// Serve static frontend files
+app.use(express.static('.'));
+
 app.get('/weather', (req, res) => {
     const city = req.query.city;
     const apiKey = process.env.OPENWEATHER_API_KEY;
